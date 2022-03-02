@@ -1,19 +1,11 @@
-const randomNumber = Math.floor(Math.random() * 3 + 1);
+document.getElementById("play-rock").addEventListener('click', function () {
+    playGame(1);
+});
 
-let playerInput = prompt('Choose your move: 1- rock, 2- paper, 3-scissors');
+document.getElementById("play-paper").addEventListener('click', function () {
+    playGame(2);
+});
 
-/* Computer move */
-
-let computerMove = getMoveName(randomNumber);
-
-/* Player move */
-
-let playerMove = getMoveName(playerInput);
-
-/* Game result */
-
-displayResult(computerMove, playerMove);
-
-console.log(`comp: ${computerMove}`);
-console.log(`me: ${playerInput}`);
-console.log('type:', typeof(playerInput));
+document.getElementById("play-scissors").addEventListener('click', function () {
+    playGame(3);
+});

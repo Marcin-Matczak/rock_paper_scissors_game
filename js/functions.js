@@ -8,7 +8,7 @@ function clearMessages() {
     document.getElementById('messages').innerHTML = '';
 }
 
-const unknownMoveAlert = (arg) => {
+/*const unknownMoveAlert = (arg) => {
     let checkValue = isNaN(arg);
     console.log('check:', checkValue);
     if (checkValue) {
@@ -16,14 +16,14 @@ const unknownMoveAlert = (arg) => {
     } else {
         return alert('The entered value is not from the range 1 - 3. Please, try again.')
     }
-}
+}*/
 
-function getMoveName(MoveId) {
-    if (MoveId == 1) {
+function getMoveName(moveId) {
+    if (moveId == 1) {
         return 'rock';
-    } else if (MoveId == 2) {
+    } else if (moveId == 2) {
         return 'paper';
-    } else if (MoveId == 3) {
+    } else if (moveId == 3) {
         return 'scissors';
     }
 }
@@ -41,8 +41,18 @@ function displayResult(computerMove, playerMove) {
         printMessage(`Your move is: ${playerMove}`);
         printMessage(`Your opponent's move is: ${computerMove}`);
         printMessage('You lose!');
-    } else {
-        unknownMoveAlert(playerInput);
-        printMessage('Refresh the page.');
     }
+
 }
+
+function playGame(arg) {
+
+    clearMessages();
+
+    const randomNumber = Math.floor(Math.random() * 3 + 1);
+    const computerMove = getMoveName(randomNumber);
+    const playerMove = getMoveName(arg);
+
+    displayResult(computerMove, playerMove);
+}
+
