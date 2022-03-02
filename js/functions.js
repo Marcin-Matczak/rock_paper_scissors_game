@@ -3,3 +3,10 @@ function printMessage(msg) {
     div.innerHTML = msg;
     document.getElementById('messages').appendChild(div);
 }
+
+function clearMessages() {
+    document.getElementById('messages').innerHTML = '';
+}
+
+const randomNumber = Math.floor(Math.random() * 3 + 1);
+
