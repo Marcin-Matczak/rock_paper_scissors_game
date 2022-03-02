@@ -1,43 +1,19 @@
+const randomNumber = Math.floor(Math.random() * 3 + 1);
+
+let playerInput = prompt('Choose your move: 1- rock, 2- paper, 3-scissors');
+
 /* Computer move */
 
-let computerMove = 'Unknown movement';
-
-if (randomNumber == 1) {
-    computerMove = 'rock';
-} else if (randomNumber == 2) {
-    computerMove = 'paper';
-} else if (randomNumber == 3) {
-    computerMove = 'scissors';
-} else {
-    computerMove = 'Unknow movement';
-}
-
-printMessage(`Your opponent's move is: ${computerMove}`);
+let computerMove = getMoveName(randomNumber);
 
 /* Player move */
 
-if (playerInput == 1) {
-    playerInput = 'rock';
-    printMessage(`Your move is: ${playerInput}`);
-} else if (playerInput == 2) {
-    playerInput = 'paper';
-    printMessage(`Your move is: ${playerInput}`);
-} else if (playerInput == 3) {
-    playerInput = 'scissors';
-    printMessage(`Your move is: ${playerInput}`);
-} else {
-    unknownMoveAlert();
-    printMessage('Your move is invalid value. Please try again.');
-}
+let playerMove = getMoveName(playerInput);
 
 /* Game result */
 
-let playerMove = playerInput;
+displayResult(computerMove, playerMove);
 
-if ( (computerMove == 'rock' && playerMove == 'rock') || (computerMove == 'paper' && playerMove == 'paper') || (computerMove == 'scissors' && playerMove == 'scissors')) {
-    printMessage('We have a draw');
-} else if ( (computerMove == 'rock' && playerMove == 'paper') || (computerMove == 'paper' && playerMove == 'scissors')) {
-    printMessage('You win!'); 
-} else if ( (computerMove == 'rock' && playerMove == 'scissors') || (computerMove == 'paper' && playerMove == 'rock')) {
-    printMessage('You lose!');
-}
+console.log(`comp: ${computerMove}`);
+console.log(`me: ${playerInput}`);
+console.log('type:', typeof(playerInput));

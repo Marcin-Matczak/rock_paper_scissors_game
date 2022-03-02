@@ -8,12 +8,41 @@ function clearMessages() {
     document.getElementById('messages').innerHTML = '';
 }
 
-const randomNumber = Math.floor(Math.random() * 3 + 1);
+const unknownMoveAlert = (arg) => {
+    let checkValue = isNaN(arg);
+    console.log('check:', checkValue);
+    if (checkValue) {
+        return alert('The entered value is not a number. Please, try again.');
+    } else {
+        return alert('The entered value is not from the range 1 - 3. Please, try again.')
+    }
+}
 
-let playerInput = Number(prompt('Choose your move: 1- rock, 2- paper, 3-scissors'));
+function getMoveName(MoveId) {
+    if (MoveId == 1) {
+        return 'rock';
+    } else if (MoveId == 2) {
+        return 'paper';
+    } else if (MoveId == 3) {
+        return 'scissors';
+    }
+}
 
-const unknownMoveAlert = playerInput => {
-    if ( playerInput = !NaN || playerInput < 1 || playerInput > 3 ) {
-        alert('You entered an invalid value. Please, try again.');
+function displayResult(computerMove, playerMove) {
+    if (computerMove == playerMove) {
+        printMessage(`Your move is: ${playerMove}`);
+        printMessage(`Your opponent's move is: ${computerMove}`);
+        printMessage('We have a draw.');
+    } else if ((computerMove == 'rock' && playerMove == 'paper') || (computerMove == 'paper' && playerMove == 'scissors')) {
+        printMessage(`Your move is: ${playerMove}`);
+        printMessage(`Your opponent's move is: ${computerMove}`);
+        printMessage('You win!');
+    } else if ((computerMove == 'rock' && playerMove == 'scissors') || (computerMove == 'paper' && playerMove == 'rock')) {
+        printMessage(`Your move is: ${playerMove}`);
+        printMessage(`Your opponent's move is: ${computerMove}`);
+        printMessage('You lose!');
+    } else {
+        unknownMoveAlert(playerInput);
+        printMessage('Refresh the page.');
     }
 }
