@@ -17,5 +17,3 @@ const unknownMoveAlert = playerInput => {
         alert('You entered an invalid value. Please, try again.');
     }
 }
-
-console.log(`ruch playera: ${playerInput}`);
