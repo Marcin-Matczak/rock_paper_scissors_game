@@ -1,13 +1,13 @@
 {
-
     function printMessage(msg) {
         let div = document.createElement('div');
         div.innerHTML = msg;
         document.getElementById('messages').appendChild(div);
     }
 
-    function clearMessages() {
-        document.getElementById('messages').innerHTML = '';
+    function clearMessages(element) {
+        let clean = String(element);
+        document.getElementById(clean).innerHTML = '';
     }
 
     function getMoveName(moveId) {
@@ -41,7 +41,7 @@
 
     function playGame(arg) {
 
-        clearMessages();
+        clearMessages('messages');
 
         const randomNumber = Math.floor(Math.random() * 3 + 1);
         const computerMove = getMoveName(randomNumber);
@@ -52,30 +52,7 @@
 
 }
 
-{
-    function showPoint(score) {
-        let div = document.createElement('div');
-        div.innerHTML = score;
-        document.getElementById('computer-score').appendChild(div);
-    }
-
-    let playerScore = 0;
-    let computerScore = 0;
-
-    function addPoint(competitor, point) {
-
-        if (competitor === "player" && playerScore < 3) {
-            playerScore += point;
-            document.getElementById('player-score').innerHTML = '';
-            showPoint(playerScore, "player");
-            console.log("player:", playerScore);
-        } else if (competitor === "computer" && computerScore < 3) {
-            computerScore += point;
-            document.getElementById('computer-score').innerHTML = '';
-            showPoint(computerScore, "computer");
-            console.log("comp:", computerScore);
-        }
-    }
+{ 
 
     function showPoint(score, competitor) {
 
@@ -87,6 +64,21 @@
             let div = document.createElement('div');
             div.innerHTML = score;
             document.getElementById('computer-score').appendChild(div);
+        }
+    }
+
+    function addPoint(competitor, point) {
+
+        if (competitor === "player" && playerScore < 3) {
+            playerScore += point;
+            clearMessages('player-score');            
+            showPoint(playerScore, "player");
+            console.log("player:", playerScore);
+        } else if (competitor === "computer" && computerScore < 3) {
+            computerScore += point;
+            clearMessages('computer-score');            
+            showPoint(computerScore, "computer");
+            console.log("comp:", computerScore);
         }
     }
 }

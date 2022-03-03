@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 document.getElementById("play-rock").addEventListener('click', function () {
     playGame(1);
 });
