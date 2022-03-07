@@ -22,21 +22,14 @@
 
     function displayResult(computerMove, playerMove) {
         if (computerMove == playerMove) {
-            printMessage(`Your move is: ${playerMove}`);
-            printMessage(`Your opponent's move is: ${computerMove}`);
-            printMessage('We have a draw.');
+            printMessage(`Your move is: ${playerMove}` + `<br>Your opponent's move is: ${computerMove}` + '<br>We have a draw.');            
         } else if ((computerMove == 'rock' && playerMove == 'paper') || (computerMove == 'paper' && playerMove == 'scissors')) {
-            printMessage(`Your move is: ${playerMove}`);
-            printMessage(`Your opponent's move is: ${computerMove}`);
-            printMessage('You win!');
+            printMessage(`Your move is: ${playerMove}` + `<br>Your opponent's move is: ${computerMove}` + '<br>You win!');
             addPoint("player", 1);
         } else if ((computerMove == 'rock' && playerMove == 'scissors') || (computerMove == 'paper' && playerMove == 'rock')) {
-            printMessage(`Your move is: ${playerMove}`);
-            printMessage(`Your opponent's move is: ${computerMove}`);
-            printMessage('You lose!');
+            printMessage(`Your move is: ${playerMove}` + `<br>Your opponent's move is: ${computerMove}` + '<br>You lose!');
             addPoint("computer", 1);
         }
-
     }
 
     function playGame(argStart) {
@@ -75,14 +68,12 @@
             showPoint(playerScore, "player");
             result("player", playerScore);
             blockButtons(playerScore);
-            console.log("player:", playerScore);
         } else if (competitor === "computer" && computerScore < 3) {
             computerScore += point;
             clearMessages('computer-score');
             showPoint(computerScore, "computer");
             result("computer", computerScore);
             blockButtons(computerScore);
-            console.log("comp:", computerScore);
         }
     }
 
