@@ -12,7 +12,8 @@
 </head>
 
 <body>
-
+    <h1>Rock, Paper, Scissors - The Game.</h1>
+    <div class="info"><h1 id="result"></h1></div>
     <div class="container">
 
         <div class="scoreboard">
@@ -37,16 +38,15 @@
             </table>
         </div>
 
-        <div id="buttons">
-            <button id="play-rock">ROCK</button>
-            <button id="play-paper">PAPER</button>
-            <button id="play-scissors">SCISSORS</button>
+        <div class="btn-box">
+            <button class="btn" id="play-rock">ROCK</button>
+            <button class="btn" id="play-paper">PAPER</button>
+            <button class="btn" id="play-scissors">SCISSORS</button>
         </div>
 
-        <div id="messages"></div>
-
+        <div class="content" id="messages"></div>
+        <button id="playAgain" class="active" onClick="window.location.reload();">Play Again</button>
     </div>
-
 
     <!-- Scripts-->
     <script src="js/functions.js"></script>

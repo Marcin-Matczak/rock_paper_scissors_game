@@ -39,20 +39,20 @@
 
     }
 
-    function playGame(arg) {
+    function playGame(argStart) {
 
         clearMessages('messages');
 
         const randomNumber = Math.floor(Math.random() * 3 + 1);
         const computerMove = getMoveName(randomNumber);
-        const playerMove = getMoveName(arg);
+        const playerMove = getMoveName(argStart);
 
         displayResult(computerMove, playerMove);
     }
 
 }
 
-{ 
+{
 
     function showPoint(score, competitor) {
 
@@ -71,17 +71,47 @@
 
         if (competitor === "player" && playerScore < 3) {
             playerScore += point;
-            clearMessages('player-score');            
+            clearMessages('player-score');
             showPoint(playerScore, "player");
+            result("player", playerScore);
+            blockButtons(playerScore);
             console.log("player:", playerScore);
         } else if (competitor === "computer" && computerScore < 3) {
             computerScore += point;
-            clearMessages('computer-score');            
+            clearMessages('computer-score');
             showPoint(computerScore, "computer");
+            result("computer", computerScore);
+            blockButtons(computerScore);
             console.log("comp:", computerScore);
         }
     }
-}
+
+    function result(winner, points) {
+        if (winner === "player" && points == 3) {
+            let div = document.createElement('div');
+            div.innerHTML = 'Congratulations. You are win the game!';
+            document.getElementById('result').appendChild(div);
+            
+        } else if (winner === "computer" && points == 3) {
+            let div = document.createElement('div');
+            div.innerHTML = 'Unfortunately. This time you lose this game.';
+            document.getElementById('result').appendChild(div);
+
+        }
+    }
+
+    function blockButtons(blockArg) { 
+        let playAgainbutton = document.getElementById('playAgain');
+        if (blockArg === 3){       
+            document.getElementById("play-rock").disabled = true;
+            document.getElementById("play-paper").disabled = true;
+            document.getElementById("play-scissors").disabled = true;
+            clearMessages('messages');
+            playAgainbutton.classList.remove('active');
+        }     
+        }
+    }
+
 
 
 
