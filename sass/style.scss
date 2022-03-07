@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=VT323);
+$main-style: 'VT323', monospace ;
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -7,20 +10,24 @@ body {
     font-size: 20px;
     line-height: 1.7;
     background-color: #F8EFBA;
+    font-family: $main-style;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 500px;
-    margin-top: 150px;
     align-items: center;
+}
+
+.info > h1{
+    min-height: 20px;
 }
 
 
 table {
      border-collapse: collapse; 
      flex: 1; 
+     font-size: 30px;
 
     tr, td, th {
         text-align: center;
@@ -36,24 +43,43 @@ tbody td {
 .content {
     min-width: 100px;
     flex: 1;
-    font-size: 20px;
+    font-size: 26px;
 }
 
 .btn-box {
     flex: 1;
-    margin-top: 50px;
-    margin-bottom: -70px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .btn {
-    cursor: pointer;
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    background: #881400;
+	border-bottom: 6px inset rgba(0,0,0,.5);
+	border-left: 6px inset rgba(0,0,0,.5);
+	border-right: 6px inset rgba(255,255,255,.5);
+	border-top: 6px inset rgba(255,255,255,.5);
+	box-sizing: border-box;
+	color: white;
+	cursor: pointer;	
+	font-size: 26px;
+	margin: 1rem;
+	min-width: 200px;
+	padding: 5px;
+    font-family: $main-style;
+
+    &:focus, &:hover {
+		background: #A81000;
+	}
 }
 
 .active {
-    visibility: hidden;
+    visibility: hidden;    
 }
 
-
+.btn-again {
+    background: #005800;
+	
+	&:focus, &:hover {
+		background: #006800;
+	}
+}

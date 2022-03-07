@@ -91,7 +91,7 @@
             let div = document.createElement('div');
             div.innerHTML = 'Congratulations. You are win the game!';
             document.getElementById('result').appendChild(div);
-            
+
         } else if (winner === "computer" && points == 3) {
             let div = document.createElement('div');
             div.innerHTML = 'Unfortunately. This time you lose this game.';
@@ -100,17 +100,17 @@
         }
     }
 
-    function blockButtons(blockArg) { 
+    function blockButtons(blockArg) {
         let playAgainbutton = document.getElementById('playAgain');
-        if (blockArg === 3){       
+        if (blockArg === 3) {
             document.getElementById("play-rock").disabled = true;
             document.getElementById("play-paper").disabled = true;
             document.getElementById("play-scissors").disabled = true;
             clearMessages('messages');
             playAgainbutton.classList.remove('active');
-        }     
         }
     }
+}
 
 
 
